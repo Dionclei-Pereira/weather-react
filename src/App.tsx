@@ -1,10 +1,14 @@
 import './App.css'
-import {useRef} from "react";
+import {useRef, useState} from "react";
 import axios from "axios";
+import type {IWeatherResponse} from "./interfaces/weather-response.interface.ts";
+import WeatherInfo from "./components/WeatherInfo/WeatherInfo.tsx";
 
 function App() {
 
     const inputRef = useRef<HTMLInputElement>(null);
+
+    const [weather, setWeather] = useState<IWeatherResponse | null>(null);
 
     async function search() {
         const city: string = inputRef.current!.value;
@@ -12,9 +16,8 @@ function App() {
 
         const apiUrl: string = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
-        console.log(city);
-        const data = await axios.get(apiUrl);
-        console.log(data);
+        const apiResponse = await axios.get<IWeatherResponse>(apiUrl);
+        setWeather(apiResponse.data);
     }
 
     return (
@@ -22,6 +25,8 @@ function App() {
             <h1>Weather React</h1>
             <input ref={inputRef} type="text" placeholder="Enter city name"/>
             <button onClick={search}>Search</button>
+
+            {weather && <WeatherInfo weather={weather} />}
         </div>
     )
 }
