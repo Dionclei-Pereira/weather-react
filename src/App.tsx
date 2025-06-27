@@ -14,7 +14,7 @@ function App() {
         const city: string = inputRef.current!.value;
         const apiKey: string = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
 
-        const apiUrl: string = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+        const apiUrl: string = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=en`;
 
         const apiResponse = await axios.get<IWeatherResponse>(apiUrl);
         setWeather(apiResponse.data);

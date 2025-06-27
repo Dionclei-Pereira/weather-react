@@ -6,7 +6,10 @@ function WeatherInfo({weather}: {weather: IWeatherResponse}) {
     return (
         <div>
             <h2>{weather.name}</h2>
-            <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} />
+            <div>
+                <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} />
+            </div>
+            <p>{Math.round(weather.main.temp)}°C</p>
         </div>
     )
 }
