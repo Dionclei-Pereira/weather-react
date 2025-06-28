@@ -21,12 +21,14 @@ function App() {
     }
 
     return (
-        <div>
-            <h1>Weather React</h1>
+        <div className='container'>
+            <h1 className='title'>Weather React</h1>
             <input ref={inputRef} type="text" placeholder="Enter city name"/>
             <button onClick={search}>Search</button>
 
-            {weather && <WeatherInfo weather={weather} />}
+            <div className='weather-info'>
+                {weather && <WeatherInfo weather={weather} />}
+            </div>
         </div>
     )
 }

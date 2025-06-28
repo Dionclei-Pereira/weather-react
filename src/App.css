@@ -1,0 +1,38 @@
+.container {
+    padding: 20px;
+    width: 50%;
+    height: 50%;
+
+    margin: auto;
+    text-align: center;
+    color: white;
+
+    .title {
+        margin-bottom: 20px;
+    }
+
+    input {
+        padding: 10px;
+        border: none;
+        border-radius: 10px 0 0 10px ;
+    }
+
+    button {
+        padding: 10px;
+        border: none;
+        border-radius: 0 10px 10px 0;
+        background: #34312f;
+        color: aliceblue;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
+
+    button:hover {
+        background: #222222;
+        color: white;
+    }
+
+    .weather-info {
+        margin-top: 30px;
+    }
+}
