@@ -12,9 +12,9 @@ function WeatherInfo({weather}: {weather: IWeatherResponse}) {
             </div>
             <p className='weather-description'>{weather.weather[0].description}</p>
             <div className='weather-details'>
-                <p>Feels like: {Math.round(weather.main.feels_like)}</p>
+                <p>Feels like: {Math.round(weather.main.feels_like)}°C</p>
                 <p>Humidity: {weather.main.humidity}%</p>
-                <p>Pressure: {weather.main.pressure}</p>
+                <p>Pressure: {weather.main.pressure} hPa</p>
             </div>
         </div>
     )
